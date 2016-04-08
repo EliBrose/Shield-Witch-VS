@@ -29,7 +29,7 @@ public class PulseGenerator : MonoBehaviour {
 			Debug.Log ("Fire2 pressed, instantiate pulse");
 			Vector3 tmpPos = transform.position;
 			Debug.Log (tmpPos.z);
-			tmpPos.z = 2f;
+			tmpPos.z = 0f;
 			Debug.Log (tmpPos.z);
 			transform.position = tmpPos;
 

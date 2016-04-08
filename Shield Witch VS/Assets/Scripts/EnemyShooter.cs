@@ -12,12 +12,18 @@ public class EnemyShooter : MonoBehaviour {
 	public float shootDelay;
 	public GameObject bulletSpawner;
 
-	//Enemy Shooter Audio
-	public AudioClip shooterdeath;
+    private Animator anim;
+
+    //Enemy Shooter Audio
+    public AudioClip shooterdeath;
 	private AudioSource shooterdeathSource;
 	public AudioClip shooterfire;
 	private AudioSource shooterfireSource;
 
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -66,6 +72,7 @@ public class EnemyShooter : MonoBehaviour {
         {
             Debug.Log("Player in range of trigger");
             inRange = true;
+            //anim.SetBool("Sighted", true);
         }
         
     }
@@ -75,6 +82,7 @@ public class EnemyShooter : MonoBehaviour {
         {
             //Debug.Log("Player out of range");
             inRange = false;
+            //anim.SetBool("Sighted", false);
         }
     }
     private void Shoot() {

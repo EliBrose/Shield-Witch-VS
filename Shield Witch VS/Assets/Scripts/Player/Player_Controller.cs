@@ -39,7 +39,7 @@ public class Player_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
+        //body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
         curHealth = maxHealth;
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
 		jumpSource = allAudioSources [0];
