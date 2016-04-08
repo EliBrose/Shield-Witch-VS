@@ -18,7 +18,7 @@ public class MagicShield : MonoBehaviour {
 
     public GameObject player;
 
-    public float posOffset = 0f;
+    public float posOffset = -1f;
 
     public float shieldUse = 3f;
     public float shieldCharge = 2f;

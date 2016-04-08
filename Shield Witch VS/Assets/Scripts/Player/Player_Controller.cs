@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 public class Player_Controller : MonoBehaviour {
 
     public float maxSpeed = 10f;
+    public float baseSpeed = 10f;
     public float jumpForce = 300f;
+    public float baseJump = 300f;
     private bool facingRight = true;
 
     private Rigidbody2D body2D;
+    private Animator anim;
 
     private bool grounded = false;
     public Transform groundCheck;
@@ -30,6 +33,7 @@ public class Player_Controller : MonoBehaviour {
     void Awake()
     {
         body2D = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>(); 
     }
 
 	// Use this for initialization
@@ -50,6 +54,9 @@ public class Player_Controller : MonoBehaviour {
 
         //Using Axis to move Horizontal, should work on controller.
         float move = Input.GetAxis("Horizontal");
+
+        //makes the animator change to the movement animation
+        anim.SetFloat("Speed", Mathf.Abs(move));
 
         //moves the player left or right based on button press.
         body2D.velocity = new Vector2(move * maxSpeed, body2D.velocity.y);
@@ -102,13 +109,8 @@ public class Player_Controller : MonoBehaviour {
 
     void Die()
     {
-		//Death Audio
-		deathSource.clip = deathsound;
-		deathSource.Play ();
-		//This needs to be updated in case they run out of lives?
-        body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
-        curHealth = maxHealth;
-        //SceneManager.LoadScene("Michael");
+        StartCoroutine(Death());
+		
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -131,7 +133,7 @@ public class Player_Controller : MonoBehaviour {
     }
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if(col.gameObject.tag == "Enemy")
+		if(col.gameObject.tag == "Enemy" || col.gameObject.tag == "Deadly" || col.gameObject.tag == "BulletHold")
 		{
 			//Take damage audio
 			damageSource.clip = damagesound;
@@ -139,4 +141,21 @@ public class Player_Controller : MonoBehaviour {
 			curHealth--;
 		}
 	}
+
+    IEnumerator Death()
+    {
+        //Death Audio
+        deathSource.clip = deathsound;
+        deathSource.Play();
+
+        maxSpeed = 0f;
+        jumpForce = 0f;
+        yield return new WaitForSeconds(0f); //2f
+
+        //This needs to be updated in case they run out of lives?
+        body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
+        curHealth = maxHealth;
+        maxSpeed = baseSpeed;
+        jumpForce = baseJump;
+    }
 }

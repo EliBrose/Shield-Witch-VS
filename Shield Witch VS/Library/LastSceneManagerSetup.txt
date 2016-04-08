@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Sheild Witch lvl 1.unity
+- path: Assets/Scenes/Michael New.unity
   isLoaded: 1
   isActive: 1
