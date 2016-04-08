@@ -46,7 +46,6 @@ public class Player_Controller : MonoBehaviour {
 		deathSource = allAudioSources [2];
 	}
 
-	
 	void FixedUpdate () {
 
         //uses the groundcheck transform to find whether we are ON THE GROUND. Returns true or false.
@@ -56,7 +55,12 @@ public class Player_Controller : MonoBehaviour {
         float move = Input.GetAxis("Horizontal");
 
         //makes the animator change to the movement animation
-        anim.SetFloat("Speed", Mathf.Abs(move));
+        if (grounded)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(move));
+        } else {
+            anim.SetFloat("Speed", 0);
+        }
 
         //moves the player left or right based on button press.
         body2D.velocity = new Vector2(move * maxSpeed, body2D.velocity.y);
@@ -73,11 +77,13 @@ public class Player_Controller : MonoBehaviour {
         }
 	}
 
+    //In the update function it starts off with the Jump and goes into the players health.
     void Update()
     {
         //Currently Jump is just the space button for testing purposes, we will change this!
         if(grounded && Input.GetButtonDown("Jump"))
         {
+            anim.SetBool("Ground", false);
             body2D.AddForce(new Vector2(0, jumpForce));
 			//Jump Audio
 			jumpSource.clip = jumpsound;

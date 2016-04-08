@@ -12,6 +12,11 @@ public class HUD : MonoBehaviour {
     public GameObject Heart1;
     public GameObject Heart2;
     public GameObject Heart3;
+
+    public GameObject noHeart1;
+    public GameObject noHeart2;
+    public GameObject noHeart3;
+
     public Text shieldTimer;
 
     //public Image HeartUI;
@@ -19,7 +24,9 @@ public class HUD : MonoBehaviour {
 
     void Start()
     {
-        
+        noHeart1.SetActive(false);
+        noHeart2.SetActive(false);
+        noHeart3.SetActive(false);
     }
 
     void Update()
@@ -31,27 +38,45 @@ public class HUD : MonoBehaviour {
             Heart1.SetActive(true);
             Heart2.SetActive(true);
             Heart3.SetActive(true);
+
+
+            noHeart1.SetActive(false);
+            noHeart2.SetActive(false);
+            noHeart3.SetActive(false);
         }
         else if (player.curHealth == 2)
         {
             Heart1.SetActive(true);
             Heart2.SetActive(true);
             Heart3.SetActive(false);
+
+            noHeart1.SetActive(false);
+            noHeart2.SetActive(false);
+            noHeart3.SetActive(true);
         }
         else if (player.curHealth == 1)
         {
             Heart1.SetActive(true);
             Heart2.SetActive(false);
             Heart3.SetActive(false);
+
+            noHeart1.SetActive(false);
+            noHeart2.SetActive(true);
+            noHeart3.SetActive(true);
+
         }
         else if (player.curHealth == 0)
         {
             Heart1.SetActive(false);
             Heart2.SetActive(false);
             Heart3.SetActive(false);
+
+            noHeart3.SetActive(true);
+            noHeart3.SetActive(true);
+            noHeart3.SetActive(true);
         }
 
-        shieldTimer.text = "Shield Timer " + System.Math.Round(shield.shieldUse, 0);
+        //shieldTimer.text = "Shield Timer " + System.Math.Round(shield.shieldUse, 0);
 		/*
 		//Shield audio test function
 		if shield.shieldUse > 2 {
