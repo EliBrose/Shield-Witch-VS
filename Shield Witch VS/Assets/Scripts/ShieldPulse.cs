@@ -36,7 +36,7 @@ public class ShieldPulse : MonoBehaviour
 	void FixedUpdate ()
 	{
 
-		if ((Input.GetButtonDown("Fire1")) && forceReady){ 
+		if ((Input.GetButtonDown("Fire2")) && forceReady){ 
 		Debug.Log("exlosive force");
 		//replace the next line so that objPos1 = location of the player
 		//Vector3 objPos1 = transform.position; //--> Doesn't work
