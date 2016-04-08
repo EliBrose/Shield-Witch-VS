@@ -11,9 +11,21 @@ public class Door : MonoBehaviour {
 	private int state = IDLE;
 	private Animator animator;
 
+	[Header("Audio")]
+	private AudioSource[] allAudioSources;
+	private AudioSource opendoorSource;
+	private AudioSource closedoorSource;
+
+	public AudioClip opendoor;
+	public AudioClip closedoor;
+
+
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
+		AudioSource[] allAudioSources = GetComponents<AudioSource>();
+		opendoorSource = allAudioSources [0];
+		closedoorSource = allAudioSources [1];
 	}
 	
 	// Update is called once per frame
@@ -23,6 +35,8 @@ public class Door : MonoBehaviour {
 
 	void OnOpenStart(){
 		state = OPENING;
+		opendoorSource.clip = opendoor;
+		opendoorSource.Play ();
 	}
 
 	void OnOpenEnd(){
@@ -32,6 +46,8 @@ public class Door : MonoBehaviour {
 
 	void OnCloseStart(){
 		state = CLOSING;
+		closedoorSource.clip = closedoor;
+		closedoorSource.Play ();
 	}
 	
 	void OnCloseEnd(){

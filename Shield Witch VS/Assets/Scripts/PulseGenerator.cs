@@ -9,8 +9,15 @@ public class PulseGenerator : MonoBehaviour {
 	public GameObject player;
 	//public int delay = 2.0;
 	// Use this for initialization
-	void Start () {
+	[Header("Audio")]
+	private AudioSource[] allAudioSources;
+	private AudioSource pulseSource;
+	public AudioClip pulsesound;
 
+
+	void Start () {
+		AudioSource[] allAudioSources = GetComponents<AudioSource>();
+		pulseSource = allAudioSources [3];
 	}
 
 	void Awake(){
@@ -26,9 +33,13 @@ public class PulseGenerator : MonoBehaviour {
 			Debug.Log (tmpPos.z);
 			transform.position = tmpPos;
 
+
 			//GameObject pulseClone = Instantiate (pulse, transform.position, transform.rotation) as GameObject;
+
 			GameObject pulseClone = Instantiate (pulse, tmpPos, transform.rotation) as GameObject;
-			Object.Destroy (pulseClone, .5f);
+			pulseSource.clip = pulsesound;
+			pulseSource.Play ();
+			Object.Destroy (pulseClone, 1f);
 
 
 		}

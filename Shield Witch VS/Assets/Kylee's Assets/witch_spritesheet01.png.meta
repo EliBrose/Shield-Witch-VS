@@ -1,15 +1,9 @@
 fileFormatVersion: 2
 guid: f86d292cba523954389fd37d34117235
-timeCreated: 1459989103
+timeCreated: 1459822790
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: witch_spritesheet01_0
-    21300002: witch_spritesheet01_1
-    21300004: witch_spritesheet01_2
-    21300006: witch_spritesheet01_3
-    21300008: witch_spritesheet01_4
-    21300010: witch_spritesheet01_5
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,102 +44,12 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: witch_spritesheet01_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 27}
-        - {x: -21, y: -27}
-        - {x: 21, y: -27}
-        - {x: 21, y: 27}
-    - name: witch_spritesheet01_1
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 27}
-        - {x: -21, y: -27}
-        - {x: 21, y: -27}
-        - {x: 21, y: 27}
-    - name: witch_spritesheet01_2
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 0
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 27}
-        - {x: -21, y: -27}
-        - {x: 21, y: -27}
-        - {x: 21, y: 27}
-    - name: witch_spritesheet01_3
-      rect:
-        serializedVersion: 2
-        x: 126
-        y: 0
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 27}
-        - {x: -21, y: -27}
-        - {x: 21, y: -27}
-        - {x: 21, y: 27}
-    - name: witch_spritesheet01_4
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 0
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 27}
-        - {x: -21, y: -27}
-        - {x: 21, y: -27}
-        - {x: 21, y: 27}
-    - name: witch_spritesheet01_5
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 0
-        width: 42
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 27}
-        - {x: -21, y: -27}
-        - {x: 21, y: -27}
-        - {x: 21, y: 27}
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

@@ -12,6 +12,10 @@ public class ShieldPulse : MonoBehaviour
 	public Vector3 example ;
 	public bool forceReady;
 
+
+
+
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -40,6 +44,7 @@ public class ShieldPulse : MonoBehaviour
 		//Vector3 objPos1 = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		//Vector3 objPos1 = new Vector3 (0,0,0);
 		//	Vector3 example = new Vector3 (-11, 1, 0);
+		
 		AddExplosionForce(GetComponent<Rigidbody2D>(), Power * 100, example, Radius);
 		}
 	}

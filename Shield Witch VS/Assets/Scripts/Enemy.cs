@@ -18,14 +18,24 @@ public class Enemy : MonoBehaviour {
     public GameObject[] explosions;
 
 	//Enemy Audio
-	public AudioClip enemy;
-	private AudioSource enemySource;
+	[Header("Audio")]
+	private AudioSource[] allAudioSources;
+	private AudioSource attackSource;
+	private AudioSource stunSource;
+	private AudioSource deathSource;
+
+	public AudioClip attack;
+	public AudioClip stun;
+	public AudioClip death;
 
 	// Use this for initialization
 	void Start () {
         target = GameObject.FindGameObjectWithTag("Player");
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
-		enemySource = allAudioSources [0];
+		attackSource = allAudioSources [0];
+		stunSource = allAudioSources [1];
+		deathSource = allAudioSources [2];
+		GetComponent<Enemy> ().enabled = false;
         //chasing = false;
 	}
 
@@ -38,17 +48,20 @@ public class Enemy : MonoBehaviour {
             this.transform.position += look.normalized * speed * Time.deltaTime;
             euler.z = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg - 90;
             transform.eulerAngles = euler;
+			attackSource.clip = attack;
+			attackSource.Play ();
         }
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "Bomb")
+        if (col.gameObject.tag == "Bullet")
 		{	
             Debug.Log("Enemy destroyed by player");
 			//StartCoroutine (OnDeath ());
             //target.GetComponent<Rescue>().addScoreEnemy(50);
-            //OnDeath();
+            OnDeath();
+
         }
 
         if(col.gameObject.tag == "Player")
@@ -92,6 +105,8 @@ public class Enemy : MonoBehaviour {
 		//Play enemy death sound and then destroy
 		//chasing = false;
 		chasing = false;
+		stunSource.clip = stun;
+		stunSource.Play ();
 		Debug.Log ("Changed chasing to false");
 		yield return new WaitForSeconds(2f);  
 		chasing = true;
@@ -102,20 +117,16 @@ public class Enemy : MonoBehaviour {
 
 
 
-	/*IEnumerator OnDeath()
+	IEnumerator OnDeath()
 	{
         GetComponent<BoxCollider2D>().enabled = false;
-        GameObject explosion1 = Instantiate(explosions[Random.Range(0, 3)], transform.position, Quaternion.identity) as GameObject;
-        GameObject explosion2 = Instantiate(explosions[Random.Range(0, 3)], transform.position, Quaternion.identity) as GameObject;
-        Destroy(explosion1, 1f);
-        Destroy(explosion2, 1f);
         //Play enemy death sound and then destroy
-        enemySource.clip = enemy;
-		enemySource.Play ();
+		deathSource.clip = death;
+		deathSource.Play ();
 		//chasing = false;
 		yield return new WaitForSeconds(.5f);       
         Destroy(this.gameObject); 
-	} */
+	} 
     /*public void OnDeath()
     {
         //GameObject scoreShow = Instantiate(scorePrefab, this.transform.position, Quaternion.identity) as GameObject;

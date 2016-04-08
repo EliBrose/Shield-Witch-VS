@@ -6,9 +6,18 @@ public class ShockPanel : MonoBehaviour {
 	public bool sticky;
 	private bool down;
 	private Animator animator;
+
+	//Audio
+	private AudioSource[] allAudioSources;
+	private AudioSource elecswitchSource;
+
+	public AudioClip elecswitch;
+
 	// Use this for initialization
 void Start () {
 	animator = GetComponent<Animator> ();
+		AudioSource[] allAudioSources = GetComponents<AudioSource>();
+		elecswitchSource = allAudioSources [0];
 }
 
 // Update is called once per frame
@@ -21,6 +30,8 @@ void OnTriggerEnter2D(Collider2D target){
 		Debug.Log ("Hit by shield pulse");
 		animator.SetInteger ("AnimState", 1);
 		down = true;
+			elecswitchSource.clip = elecswitch;
+			elecswitchSource.Play ();
 
 		foreach (DoorTrigger trigger in doorTriggers) {
 			if (trigger != null)

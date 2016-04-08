@@ -44,17 +44,11 @@ public class EnemyShooter : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D col)
     {
-        if (col.gameObject.tag == "Sun")
-        {
-            Debug.Log("Sun Hit");
-            Destroy(this.gameObject);
-			StartCoroutine (OnDeath ());
-        }
-
         if(col.gameObject.tag == "Bullet")
         {
             //target.GetComponent<Rescue>().addScoreEnemy(100);
             Destroy(this.gameObject);
+			StartCoroutine (OnDeath ());
         }
 
 		/*if(col.gameObject.tag == "Player")
@@ -65,15 +59,6 @@ public class EnemyShooter : MonoBehaviour {
 
     }
 
-    void OnCollisionStay2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Sun")
-        {
-            Debug.Log("Sun Hit");
-            Destroy(this.gameObject);
-            StartCoroutine(OnDeath());
-        }
-    }
 
 	void OnTriggerEnter2D(Collider2D col)
     {
