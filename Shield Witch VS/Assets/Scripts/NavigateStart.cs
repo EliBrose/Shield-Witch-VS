@@ -9,7 +9,7 @@ public class NavigateStart : MonoBehaviour {
         if (Input.GetKeyDown("1"))
         {
             Debug.Log("load game scene");
-            SceneManager.LoadScene("Michael New");
+            SceneManager.LoadScene("Level");
         }
        /* if (Input.GetKeyDown("2"))
         {

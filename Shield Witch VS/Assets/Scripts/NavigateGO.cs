@@ -15,7 +15,7 @@ public class NavigateGO : MonoBehaviour {
         if (Input.GetKeyDown("1"))
         {
             Debug.Log("Replay");
-            SceneManager.LoadScene("Michael New");
+            SceneManager.LoadScene("Level");
         }
     }
 }

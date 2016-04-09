@@ -20,7 +20,7 @@ public class Killbox : MonoBehaviour {
         {
             Debug.Log("Killboxed");
             //Destroy(col.gameObject);
-            SceneManager.LoadScene("Michael");
+            SceneManager.LoadScene("_GameOver");
         }
     } 
 }

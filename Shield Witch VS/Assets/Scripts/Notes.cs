@@ -52,21 +52,23 @@ public class Notes : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (touchingNote && Input.GetKey ("up")) {
+		if (touchingNote && Input.GetButtonDown ("Fire2")) {
 			//Audio opening
+
 			openSource.clip = openNote;
 			openSource.Play ();
 			Time.timeScale = 0;
-			noteHUD.text = "Press Down to Put Away";
+			noteHUD.text = "A to Close";
+
 			//Instantiate (noteImage);
 			noteImage.enabled = true;
 	}
-		if (Time.timeScale == 0 && Input.GetKey("down")) {
+		if (Time.timeScale == 0 && Input.GetButtonDown("Jump")) {
 			//Audio closing note
 			closeSource.clip = closeNote;
 			closeSource.Play ();
 			Time.timeScale = 1;
-			noteHUD.text = "Press Up to Read";
+			noteHUD.text = "A to Read";
 			noteImage.enabled = false;
 			//Destroy (noteImage);
 		}
@@ -75,7 +77,7 @@ public class Notes : MonoBehaviour {
 			//Destroy (noteImage);
 		}
 		if (touchingNote == true) {
-			noteHUD.text = "Press Up to Read";
+			noteHUD.text = "B to Read";
 			//Destroy (noteImage);
 		}
 }
