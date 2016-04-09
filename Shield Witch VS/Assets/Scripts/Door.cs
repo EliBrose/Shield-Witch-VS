@@ -73,5 +73,7 @@ public class Door : MonoBehaviour {
 	private IEnumerator CloseNow(){
 		yield return new WaitForSeconds(closeDelay);
 		animator.SetInteger ("AnimState", 2);
+        yield return new WaitForSeconds(closeDelay);
+        animator.SetInteger("AnimState", 0);
 	}
 }

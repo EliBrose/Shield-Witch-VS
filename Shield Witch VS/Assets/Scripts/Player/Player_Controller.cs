@@ -130,6 +130,7 @@ public class Player_Controller : MonoBehaviour {
 			damageSource.clip = damagesound;
 			damageSource.Play ();
 			curHealth--;
+            StartCoroutine(Hit());
 
             //Destroy(col.gameObject);
         }
@@ -146,7 +147,8 @@ public class Player_Controller : MonoBehaviour {
 			damageSource.clip = damagesound;
 			damageSource.Play ();
 			curHealth--;
-		}
+            StartCoroutine(Hit());
+        }
 	}
 
     IEnumerator Death()
@@ -164,5 +166,12 @@ public class Player_Controller : MonoBehaviour {
         curHealth = maxHealth;
         maxSpeed = baseSpeed;
         jumpForce = baseJump;
+    }
+
+    IEnumerator Hit()
+    {
+        anim.SetBool("Hit", true);
+        yield return new WaitForSeconds(.8f);
+        anim.SetBool("Hit", false);
     }
 }

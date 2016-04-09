@@ -38,6 +38,7 @@ public class MagicShield : MonoBehaviour {
         //playerPos = new Vector3(player.transform.position.x + .75f, player.transform.position.y + .5f, 1);
 
         player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player_Test");
     }
 	
     

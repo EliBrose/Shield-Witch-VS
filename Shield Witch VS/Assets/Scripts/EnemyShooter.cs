@@ -28,6 +28,7 @@ public class EnemyShooter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.Find("Player_Test").transform;
 		InvokeRepeating("Shoot", 1f, shootDelay);
 		//ShooterAudio
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
@@ -42,10 +43,15 @@ public class EnemyShooter : MonoBehaviour {
         euler.z = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = euler;
 
-       /* if (!inRange)
+        /* if (!inRange)
+         {
+             //this.transform.position += look.normalized * speed * Time.deltaTime;
+         }*/
+
+        if (!inRange)
         {
-            //this.transform.position += look.normalized * speed * Time.deltaTime;
-        }*/
+            anim.SetBool("Sighted", false);
+        }
     }
 
     void OnCollisionEnter2D (Collision2D col)
@@ -72,7 +78,6 @@ public class EnemyShooter : MonoBehaviour {
         {
             Debug.Log("Player in range of trigger");
             inRange = true;
-            //anim.SetBool("Sighted", true);
         }
         
     }
@@ -82,7 +87,6 @@ public class EnemyShooter : MonoBehaviour {
         {
             //Debug.Log("Player out of range");
             inRange = false;
-            //anim.SetBool("Sighted", false);
         }
     }
     private void Shoot() {
@@ -91,14 +95,16 @@ public class EnemyShooter : MonoBehaviour {
         {
 			Debug.Log ("out of range");
             return;
+            //anim.SetBool("Sighted", false);
         }
         else
         {   
 			Debug.Log ("Shooting in range");
 			GameObject shot = Instantiate(bulletPrefab, bulletSpawner.transform.position, Quaternion.identity) as GameObject;
             shot.transform.eulerAngles = this.transform.eulerAngles;
-			//shooterfireSource.clip = shooterfire;
-			//shooterfireSource.Play ();
+            anim.SetBool("Sighted", true);
+            //shooterfireSource.clip = shooterfire;
+            //shooterfireSource.Play ();
         }
     }
 

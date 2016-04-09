@@ -17,8 +17,10 @@ public class Enemy : MonoBehaviour {
 
     public GameObject[] explosions;
 
-	//Enemy Audio
-	[Header("Audio")]
+    private Animator anim;
+
+    //Enemy Audio
+    [Header("Audio")]
 	private AudioSource[] allAudioSources;
 	private AudioSource attackSource;
 	private AudioSource stunSource;
@@ -28,6 +30,10 @@ public class Enemy : MonoBehaviour {
 	public AudioClip stun;
 	public AudioClip death;
 
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 	// Use this for initialization
 	void Start () {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -50,6 +56,14 @@ public class Enemy : MonoBehaviour {
             transform.eulerAngles = euler;
 			attackSource.clip = attack;
 			attackSource.Play ();
+
+            //Plays the animation for the robot to come alive.
+            anim.SetBool("Activated", true);
+        }
+        else
+        {
+            //Plays deactivated animation
+            anim.SetBool("Activated", false);
         }
     }
 
