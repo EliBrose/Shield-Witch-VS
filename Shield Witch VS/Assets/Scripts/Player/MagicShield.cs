@@ -23,7 +23,7 @@ public class MagicShield : MonoBehaviour {
     public float shieldUse = 3f;
     public float shieldCharge = 2f;
 
-    private bool inUse;
+    public bool inUse;
 
 
     // Use this for initialization

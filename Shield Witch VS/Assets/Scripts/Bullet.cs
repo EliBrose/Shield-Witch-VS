@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour {
     void Awake()
     {
         bulletHolder = GameObject.FindGameObjectWithTag("BulletHold");
+        //bulletHolder = GameObject.Find("BulletHold");
         playerShield = FindObjectOfType<MagicShield>();
         body2D = GetComponent<Rigidbody2D>();
     }
