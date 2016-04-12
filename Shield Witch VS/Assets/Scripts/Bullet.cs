@@ -110,11 +110,11 @@ public class Bullet : MonoBehaviour {
                 speedY = 0f;
                 if (Input.GetAxisRaw("RightJoyHorizontal") >= 0)
                 {
-                    body2D.position = new Vector2(col.gameObject.transform.position.x + .3f, col.gameObject.transform.position.y - .3f); //.3, -.3
+                    body2D.position = new Vector2(col.gameObject.transform.position.x + .1f, col.gameObject.transform.position.y - .1f); //.3, -.3
                 }
                 else if (Input.GetAxisRaw("RightJoyHorizontal") < 0)
                 {
-                    body2D.position = new Vector2(col.gameObject.transform.position.x - .15f, col.gameObject.transform.position.y - .3f); //.15, -.3
+                    body2D.position = new Vector2(col.gameObject.transform.position.x - .1f, col.gameObject.transform.position.y - .1f);//.15, -.3
                 }
                 //body2D.position = new Vector2(col.gameObject.transform.position.x + .3f, col.gameObject.transform.position.y - .3f);
                 //body2D.position.x
@@ -136,6 +136,7 @@ public class Bullet : MonoBehaviour {
             //speedY = baseSpeedY;
             //StartCoroutine(Movement());
             proMove = true;
+          
         }
         else if (col.gameObject.tag == "MagicShield" && myBullet == true)
         {
