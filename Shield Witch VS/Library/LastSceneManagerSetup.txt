@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Sheild Witch lvl 1.unity
+- path: Assets/Level_2_proto.unity
   isLoaded: 1
   isActive: 1
