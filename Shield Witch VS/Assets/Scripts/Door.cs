@@ -7,7 +7,7 @@ public class Door : MonoBehaviour {
 	public const int OPENING = 1;
 	public const int OPEN = 2;
 	public const int CLOSING = 3;
-	public float closeDelay = .5f;
+	public float closeDelay = .4f;
 	private int state = IDLE;
 	private Animator animator;
 
@@ -30,7 +30,11 @@ public class Door : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    /*if(state == 2)
+        {
+            animator.SetInteger("AnimState", 2);
+        } */
+       
 	}
 
 	void OnOpenStart(){
@@ -63,7 +67,8 @@ public class Door : MonoBehaviour {
 	}
 
 	public void Open(){
-		animator.SetInteger ("AnimState", 1);
+        //animator.SetInteger ("AnimState", 1);
+        StartCoroutine(OpenNow());
 	}
 
 	public void Close(){
@@ -71,9 +76,57 @@ public class Door : MonoBehaviour {
 	}
 
 	private IEnumerator CloseNow(){
-		yield return new WaitForSeconds(closeDelay);
-		animator.SetInteger ("AnimState", 2);
-        yield return new WaitForSeconds(closeDelay);
+		animator.SetInteger ("AnimState", 3);
+        closedoorSource.clip = closedoor;
+        closedoorSource.Play();
+        yield return new WaitForSeconds(.3f);
         animator.SetInteger("AnimState", 0);
-	}
+        GetComponent<BoxCollider2D>().enabled = true;
+        //GetComponent<Collider2D>().enabled = true;
+    }
+
+    private IEnumerator OpenNow()
+    {
+        animator.SetInteger("AnimState", 1);
+        opendoorSource.clip = opendoor;
+        opendoorSource.Play();
+        yield return new WaitForSeconds(.5f);
+        GetComponent<BoxCollider2D>().enabled = false;
+        animator.SetInteger("AnimState", 2);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            StartCoroutine(OpenNow());
+            //GetComponent<Collider2D>().enabled = false;
+        }
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            StartCoroutine(CloseNow());
+            //GetComponent<Collider2D>().enabled = true;
+        }
+    }
+
+
+    /*void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            StartCoroutine(OpenNow());
+            //GetComponent<Collider2D>().enabled = false;
+        }
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            StartCoroutine(CloseNow());
+            //GetComponent<Collider2D>().enabled = true;
+        }
+    } */
 }
