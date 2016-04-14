@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class CameraMovement : MonoBehaviour {
@@ -9,13 +11,22 @@ public class CameraMovement : MonoBehaviour {
     public float smoothTimeX;
 	public float xOffset;
 	public float yOffset;
+	private bool hitGround;
+	private float groundY;
 
     public GameObject player;
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player_Test");
     }
+
+	void Update()
+	{
+		groundY = player.GetComponent<Player_Controller>().groundY;
+		hitGround = player.GetComponent<Player_Controller> ().hitGround;	
+		//Debug.Log (hitGround + " and " + groundY);
+	}
 
     void FixedUpdate()
     {
@@ -23,6 +34,18 @@ public class CameraMovement : MonoBehaviour {
         float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
 
         //transform.position = new Vector3(posX, posY, transform.position.z);
-		transform.position = new Vector3(player.transform.position.x + xOffset, yOffset, transform.position.z);
+		if (!hitGround) {
+			//Debug.Log ("not hit ground");
+			transform.position = new Vector3 (player.transform.position.x + xOffset, /*player.transform.position.y +*/yOffset, transform.position.z);
+		}
+
+		if (hitGround) {
+			//Debug.Log ("Hitground");
+			transform.position = new Vector3 (player.transform.position.x + xOffset, groundY + yOffset + .8f, transform.position.z);
+		}
+		/*if (player.transform.position.y > yOffset) {
+			transform.position = new Vector3 (player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
+		}*/
     }
+		
 }

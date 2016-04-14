@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour {
 
+
+	//Cam
+	public float groundY;
+	public bool hitGround;
+
     public float maxSpeed = 10f;
     public float baseSpeed = 10f;
     public float jumpForce = 300f;
@@ -45,6 +50,11 @@ public class Player_Controller : MonoBehaviour {
 		jumpSource = allAudioSources [0];
 		damageSource = allAudioSources [1];
 		deathSource = allAudioSources [2];
+
+		maxSpeed = 0;
+		jumpForce = 0;
+		baseJump = 0;
+
 	}
 
 	void FixedUpdate () {
@@ -93,6 +103,13 @@ public class Player_Controller : MonoBehaviour {
     //In the update function it starts off with the Jump and goes into the players health.
     void Update()
     {
+
+		if(Input.GetButtonDown("Fire2"))
+		{
+			maxSpeed = 4;
+			baseJump = 550;
+			jumpForce = 550;
+		}
         //Currently Jump is just the space button for testing purposes, we will change this!
         if(grounded && Input.GetButtonDown("Jump"))
         {
@@ -175,6 +192,11 @@ public class Player_Controller : MonoBehaviour {
 			curHealth--;
             StartCoroutine(Hit());
         }
+
+		if (col.gameObject.tag == "Ground") {
+			groundY = col.transform.position.y;
+			hitGround = true;
+		}
 	}
 
     IEnumerator Death()

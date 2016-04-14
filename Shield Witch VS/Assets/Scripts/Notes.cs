@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -6,6 +6,7 @@ using System.Collections;
 public class Notes : MonoBehaviour {
 
 	public Image noteImage;
+	public Image noteButtonImage;
 	public Text noteHUD;
 	public bool touchingNote;
 
@@ -21,6 +22,7 @@ public class Notes : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		noteImage.enabled = false;
+		noteButtonImage.enabled = false;
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
 		openSource = allAudioSources [0];
 		closeSource = allAudioSources [1];
@@ -29,12 +31,13 @@ public class Notes : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.transform.gameObject.tag == "Player") {
+		if (col.transform.gameObject.name == "Player_Test") {
 			touchingNote = true;
 			//Touch note audio
 			contactSource.clip = contactNote;
 			contactSource.Play ();
-			noteHUD.text = "Press Up to Read";
+			//noteButtonImage.enabled = true;
+			//noteHUD.text = "Press Up to Read";
 
 				Debug.Log ("Hit note.");
 				
@@ -58,26 +61,32 @@ public class Notes : MonoBehaviour {
 			openSource.clip = openNote;
 			openSource.Play ();
 			Time.timeScale = 0;
-			noteHUD.text = "A to Close";
+			//noteHUD.text = "A to Close";
 
 			//Instantiate (noteImage);
 			noteImage.enabled = true;
+			//noteButtonImage.enabled = true;
 	}
 		if (Time.timeScale == 0 && Input.GetButtonDown("Jump")) {
 			//Audio closing note
+			Time.timeScale = 1;
+			noteImage.enabled = false;
 			closeSource.clip = closeNote;
 			closeSource.Play ();
-			Time.timeScale = 1;
-			noteHUD.text = "A to Read";
-			noteImage.enabled = false;
+
+			//noteHUD.text = "A to Read";
+
 			//Destroy (noteImage);
 		}
 		if (touchingNote == false) {
-			noteHUD.text = "";
+			//noteHUD.text = "";
+			noteButtonImage.enabled = false;
 			//Destroy (noteImage);
 		}
 		if (touchingNote == true) {
-			noteHUD.text = "B to Read";
+			//noteHUD.text = "B to Read";
+			//noteImage.enabled = false;
+			noteButtonImage.enabled = true;
 			//Destroy (noteImage);
 		}
 }

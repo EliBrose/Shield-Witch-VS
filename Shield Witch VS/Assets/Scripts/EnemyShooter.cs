@@ -27,7 +27,7 @@ public class EnemyShooter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
         target = GameObject.Find("Player_Test").transform;
 		InvokeRepeating("Shoot", 1f, shootDelay);
 		//ShooterAudio

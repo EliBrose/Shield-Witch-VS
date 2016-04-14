@@ -30,8 +30,8 @@ void OnTriggerEnter2D(Collider2D target){
 		Debug.Log ("Hit by shield pulse");
 		animator.SetInteger ("AnimState", 1);
 		down = true;
-			elecswitchSource.clip = elecswitch;
-			elecswitchSource.Play ();
+		elecswitchSource.clip = elecswitch;
+		elecswitchSource.Play ();
 
 		foreach (DoorTrigger trigger in doorTriggers) {
 			if (trigger != null)
@@ -40,7 +40,7 @@ void OnTriggerEnter2D(Collider2D target){
 	}
 } 
 
-void OnTriggerExit2D(Collider2D target){
+/*void OnTriggerExit2D(Collider2D target){
 
 	if (sticky && down)
 		return;
@@ -53,7 +53,7 @@ void OnTriggerExit2D(Collider2D target){
 		if(trigger != null)
 			trigger.Toggle(false);
 	}
-}
+}*/
 
 void OnDrawGizmos(){
 	Gizmos.color = sticky ? Color.red : Color.green;

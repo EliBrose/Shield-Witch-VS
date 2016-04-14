@@ -94,7 +94,7 @@ public class Door : MonoBehaviour {
         GetComponent<BoxCollider2D>().enabled = false;
         animator.SetInteger("AnimState", 2);
     }
-
+	/*
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -111,6 +111,7 @@ public class Door : MonoBehaviour {
             //GetComponent<Collider2D>().enabled = true;
         }
     }
+    */
 
 
     /*void OnCollisionEnter2D(Collision2D col)
