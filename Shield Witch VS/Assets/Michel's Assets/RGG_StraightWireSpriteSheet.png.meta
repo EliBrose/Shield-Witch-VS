@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9e12d477f158b3440947ba3d701fa912
-timeCreated: 1460622509
+timeCreated: 1460649274
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -61,147 +61,182 @@ TextureImporter:
     - name: RGG_StraightWireSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 46
-        width: 116
-        height: 36
+        x: 0
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 18}
-        - {x: -58, y: -15}
-        - {x: -46, y: -18}
-        - {x: 49, y: -18}
-        - {x: 58, y: -12}
-        - {x: 58, y: 18}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     - name: RGG_StraightWireSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 230
-        y: 46
-        width: 116
-        height: 36
+        x: 192
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 18}
-        - {x: -58, y: -15}
-        - {x: -46, y: -18}
-        - {x: 49, y: -18}
-        - {x: 58, y: -12}
-        - {x: 58, y: 18}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     - name: RGG_StraightWireSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 422
-        y: 46
-        width: 116
-        height: 36
+        x: 384
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 18}
-        - {x: -58, y: -15}
-        - {x: -46, y: -18}
-        - {x: 49, y: -18}
-        - {x: 58, y: -12}
-        - {x: 58, y: 18}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     - name: RGG_StraightWireSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 614
-        y: 46
-        width: 116
-        height: 36
+        x: 576
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 18}
-        - {x: -58, y: -15}
-        - {x: -46, y: -18}
-        - {x: 49, y: -18}
-        - {x: 58, y: -12}
-        - {x: 58, y: 18}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     - name: RGG_StraightWireSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 806
-        y: 46
-        width: 116
-        height: 38
+        x: 768
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 19}
-        - {x: -58, y: -19}
-        - {x: 58, y: -19}
-        - {x: 58, y: 19}
+      - - {x: 24, y: 22}
+        - {x: -4, y: 22}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     - name: RGG_StraightWireSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 998
-        y: 46
-        width: 116
-        height: 41
+        x: 960
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 17.5}
-        - {x: -58, y: -18.5}
-        - {x: -47, y: -20.5}
-        - {x: 49, y: -20.5}
-        - {x: 58, y: -14.5}
-        - {x: 58, y: 17.5}
-      - - {x: 12, y: 16.5}
-        - {x: 16, y: 15.5}
-        - {x: 19, y: 17.5}
-        - {x: 18, y: 20.5}
-        - {x: 12, y: 20.5}
-        - {x: 11, y: 19.5}
-      - - {x: 10, y: 18.5}
-        - {x: 10, y: 20.5}
-        - {x: 5, y: 20.5}
-        - {x: 7, y: 17.5}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
+      - - {x: 12, y: 19}
+        - {x: 16, y: 18}
+        - {x: 19, y: 20}
+        - {x: 18, y: 23}
+        - {x: 13, y: 24}
+        - {x: 11, y: 22}
+      - - {x: 7, y: 20}
+        - {x: 10, y: 21}
+        - {x: 10, y: 24}
+        - {x: 7, y: 25}
+        - {x: 5, y: 23}
     - name: RGG_StraightWireSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1190
-        y: 46
-        width: 116
-        height: 36
+        x: 1152
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 18}
-        - {x: -58, y: -15}
-        - {x: -46, y: -18}
-        - {x: 49, y: -18}
-        - {x: 58, y: -12}
-        - {x: 58, y: 18}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     - name: RGG_StraightWireSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 1382
-        y: 46
-        width: 116
-        height: 36
+        x: 1344
+        y: 0
+        width: 192
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -58, y: 18}
-        - {x: -58, y: -15}
-        - {x: -46, y: -18}
-        - {x: 49, y: -18}
-        - {x: 58, y: -12}
-        - {x: 58, y: 18}
+      - - {x: 31, y: 20}
+        - {x: -11, y: 20}
+        - {x: -54, y: 13}
+        - {x: -60, y: 10}
+        - {x: -60, y: -8}
+        - {x: -55, y: -20}
+        - {x: 34, y: -20}
+        - {x: 60, y: -9}
+        - {x: 60, y: 11}
+        - {x: 57, y: 17}
     outline: []
   spritePackingTag: 
   userData: 

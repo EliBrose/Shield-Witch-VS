@@ -67,7 +67,7 @@ public class Notes : MonoBehaviour {
 			noteImage.enabled = true;
 			//noteButtonImage.enabled = true;
 	}
-		if (Time.timeScale == 0 && Input.GetButtonDown("Jump")) {
+		if (Time.timeScale == 0 && Input.GetButtonDown("Y")) {
 			//Audio closing note
 			Time.timeScale = 1;
 			noteImage.enabled = false;

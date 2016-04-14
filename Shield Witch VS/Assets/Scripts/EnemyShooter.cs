@@ -56,12 +56,13 @@ public class EnemyShooter : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D col)
     {
-        if(col.gameObject.tag == "Bullet")
+        if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly")
         {
             //target.GetComponent<Rescue>().addScoreEnemy(100);
             Destroy(this.gameObject);
 			StartCoroutine (OnDeath ());
         }
+        
 
 		/*if(col.gameObject.tag == "Player")
 		{

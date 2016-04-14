@@ -104,6 +104,15 @@ public class Player_Controller : MonoBehaviour {
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Not a hard reset, but a reset none the less.
+            body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
+            curHealth = maxHealth;
+            maxSpeed = baseSpeed;
+            jumpForce = baseJump;
+        } 
+
 		if(Input.GetButtonDown("Fire2"))
 		{
 			maxSpeed = 4;
@@ -172,7 +181,8 @@ public class Player_Controller : MonoBehaviour {
             //Take damage audio
 			damageSource.clip = damagesound;
 			damageSource.Play ();
-			curHealth--;
+            //curHealth--;
+            StartCoroutine(Damage());
             StartCoroutine(Hit());
 
             //Destroy(col.gameObject);
@@ -189,7 +199,8 @@ public class Player_Controller : MonoBehaviour {
 			//Take damage audio
 			damageSource.clip = damagesound;
 			damageSource.Play ();
-			curHealth--;
+            //curHealth--;
+            StartCoroutine(Damage());
             StartCoroutine(Hit());
         }
 
@@ -198,6 +209,12 @@ public class Player_Controller : MonoBehaviour {
 			hitGround = true;
 		}
 	}
+
+    IEnumerator Damage()
+    {
+        curHealth--;
+        yield return new WaitForSeconds(1.5f);
+    }
 
     IEnumerator Death()
     {
