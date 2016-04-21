@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.Find("Player_Test");
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
 		attackSource = allAudioSources [0];
 		stunSource = allAudioSources [1];
@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour {
         {
             //Debug.Log("Touched Player");
             //target.GetComponent<Player>().TakeDamage(1);
-           // OnDeath();
+			StartCoroutine (OnHit ());
         }
 
     }
@@ -122,12 +122,24 @@ public class Enemy : MonoBehaviour {
 		stunSource.clip = stun;
 		stunSource.Play ();
 		Debug.Log ("Changed chasing to false");
-		yield return new WaitForSeconds(2f);  
+		yield return new WaitForSeconds(2.5f);  
 		chasing = true;
 		//stunnedEnemy.GetComponent<EnemyShooter> ().enabled = true;
 
 		//Destroy(this.gameObject); 
-	} 
+	}
+
+	IEnumerator OnHit()
+	{
+		//Play enemy death sound and then destroy
+		//chasing = false;
+		chasing = false;
+		yield return new WaitForSeconds(.5f);  
+		chasing = true;
+		//stunnedEnemy.GetComponent<EnemyShooter> ().enabled = true;
+
+		//Destroy(this.gameObject); 
+	}
 
 
 
@@ -135,6 +147,10 @@ public class Enemy : MonoBehaviour {
 	{
         GetComponent<BoxCollider2D>().enabled = false;
         //Play enemy death sound and then destroy
+		GameObject explosion1 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
+		GameObject explosion2 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
+		Destroy(explosion1, 1f);
+		Destroy(explosion2, 1f);
 		deathSource.clip = death;
 		deathSource.Play ();
 		//chasing = false;

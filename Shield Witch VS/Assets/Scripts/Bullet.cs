@@ -85,13 +85,13 @@ public class Bullet : MonoBehaviour {
                 }
                 else if (Input.GetAxisRaw("RightJoyVertical") < -.7)
                 {
-                    speedY = -7.5f;
+                    speedY = 7.5f;
                     //Vector3 move = new Vector3(speed, -speedY, 0);
                 }
 
                 if (Input.GetAxisRaw("RightJoyHorizontal") < 0)
                 {
-                    speed = -15;
+                    speed = 15;
                     //Vector3 move = new Vector3(-speed, speedY, 0);
                 }
                 else if (Input.GetAxisRaw("RightJoyHorizontal") >= 0)

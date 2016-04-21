@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour {
 
+
+	//Cam
+	public float groundY;
+	public bool hitGround;
+
     public float maxSpeed = 10f;
     public float baseSpeed = 10f;
     public float jumpForce = 300f;
@@ -45,6 +50,11 @@ public class Player_Controller : MonoBehaviour {
 		jumpSource = allAudioSources [0];
 		damageSource = allAudioSources [1];
 		deathSource = allAudioSources [2];
+
+		maxSpeed = 0;
+		jumpForce = 0;
+		baseJump = 0;
+
 	}
 
 	void FixedUpdate () {
@@ -58,9 +68,21 @@ public class Player_Controller : MonoBehaviour {
         //makes the animator change to the movement animation
         if (grounded)
         {
+            anim.SetBool("Jumping", false);
             anim.SetFloat("Speed", Mathf.Abs(move));
         } else {
             anim.SetFloat("Speed", 0);
+            //anim.SetBool("Grounded", false);
+        }
+
+        if(Input.GetAxisRaw("RightJoyHorizontal") > 0.1 || Input.GetAxisRaw("RightJoyHorizontal") < -0.1 ||
+            Input.GetAxisRaw("RightJoyVertical") > 0.1 || Input.GetAxisRaw("RightJoyVertical") < -0.1 && grounded)
+        {
+            //anim.SetBool("Casting", true);
+        }
+        else
+        {
+            //anim.SetBool("Casting", false);
         }
 
         //moves the player left or right based on button press.
@@ -81,16 +103,46 @@ public class Player_Controller : MonoBehaviour {
     //In the update function it starts off with the Jump and goes into the players health.
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Not a hard reset, but a reset none the less.
+            body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
+            curHealth = maxHealth;
+            maxSpeed = baseSpeed;
+            jumpForce = baseJump;
+        } 
+
+		if(Input.GetButtonDown("Fire2"))
+		{
+			maxSpeed = 4;
+			baseJump = 550;
+			jumpForce = 550;
+		}
         //Currently Jump is just the space button for testing purposes, we will change this!
         if(grounded && Input.GetButtonDown("Jump"))
         {
-            anim.SetBool("Ground", false);
+            anim.SetBool("Ground", true);
+            anim.SetBool("Jumping", true);
             body2D.AddForce(new Vector2(0, jumpForce));
 			//Jump Audio
 			jumpSource.clip = jumpsound;
 			jumpSource.Play ();
         }
+        else
+        {
+            anim.SetBool("Ground", false);
+        }
 
+        if (!grounded)
+        {
+            anim.SetBool("Ground", true);
+            anim.SetBool("Jumping", true);
+        }
+        else
+        {
+            anim.SetBool("Ground", false);
+        }
         //Checks whether you have Health.
         if(curHealth > maxHealth)
         {
@@ -129,7 +181,8 @@ public class Player_Controller : MonoBehaviour {
             //Take damage audio
 			damageSource.clip = damagesound;
 			damageSource.Play ();
-			curHealth--;
+            //curHealth--;
+            StartCoroutine(Damage());
             StartCoroutine(Hit());
 
             //Destroy(col.gameObject);
@@ -146,10 +199,22 @@ public class Player_Controller : MonoBehaviour {
 			//Take damage audio
 			damageSource.clip = damagesound;
 			damageSource.Play ();
-			curHealth--;
+            //curHealth--;
+            StartCoroutine(Damage());
             StartCoroutine(Hit());
         }
+
+		if (col.gameObject.tag == "Ground") {
+			groundY = col.transform.position.y;
+			hitGround = true;
+		}
 	}
+
+    IEnumerator Damage()
+    {
+        curHealth--;
+        yield return new WaitForSeconds(1.5f);
+    }
 
     IEnumerator Death()
     {
@@ -159,6 +224,7 @@ public class Player_Controller : MonoBehaviour {
 
         maxSpeed = 0f;
         jumpForce = 0f;
+        //anim.SetBool("Dead", true);
         yield return new WaitForSeconds(0f); //2f
 
         //This needs to be updated in case they run out of lives?

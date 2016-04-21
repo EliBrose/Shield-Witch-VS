@@ -27,7 +27,7 @@ public class EnemyShooter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
         target = GameObject.Find("Player_Test").transform;
 		InvokeRepeating("Shoot", 1f, shootDelay);
 		//ShooterAudio
@@ -56,12 +56,13 @@ public class EnemyShooter : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D col)
     {
-        if(col.gameObject.tag == "Bullet")
+        if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly")
         {
             //target.GetComponent<Rescue>().addScoreEnemy(100);
             Destroy(this.gameObject);
 			StartCoroutine (OnDeath ());
         }
+        
 
 		/*if(col.gameObject.tag == "Player")
 		{

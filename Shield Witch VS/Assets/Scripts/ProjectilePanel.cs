@@ -34,7 +34,7 @@ public class ProjectilePanel : MonoBehaviour {
 		if (sticky && down)
 			return;
 
-		animator.SetInteger ("AnimState", 2);
+		//animator.SetInteger ("AnimState", 2);
 
 		down = false;
 

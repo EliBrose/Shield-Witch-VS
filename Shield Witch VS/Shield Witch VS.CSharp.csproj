@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ExplosionForce2D\script\ExplosionForce2D.cs" />
-    <Compile Include="Assets\MagicShieldBar.cs" />
+    <Compile Include="Assets\MenuManager.cs" />
     <Compile Include="Assets\Scripts\AlienC.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Load.cs" />
     <Compile Include="Assets\Scripts\LookAhead.cs" />
     <Compile Include="Assets\Scripts\LookAt.cs" />
+    <Compile Include="Assets\Scripts\MagicShieldBar.cs" />
     <Compile Include="Assets\Scripts\MainMenu1.cs" />
     <Compile Include="Assets\Scripts\MoveForward.cs" />
     <Compile Include="Assets\Scripts\NavigateGO.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\Scripts\Switch.cs" />
     <Compile Include="Assets\Scripts\Walls.cs" />
     <Compile Include="Assets\Scripts\WinBox.cs" />
+    <Compile Include="Assets\Scripts\robotrigger2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

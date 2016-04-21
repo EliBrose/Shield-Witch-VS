@@ -16,6 +16,14 @@ public class Walls : MonoBehaviour {
 
 		//this.GetComponent<Rigidbody>().AddForce (this.transform.forward * 1000);
 	}
+    
+    void onCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Bullet")
+        {
+            Destroy(col.gameObject);
+        }
+    }
 
 	void OnTriggerEnter2D(Collider2D col)
 	{

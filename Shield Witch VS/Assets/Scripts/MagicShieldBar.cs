@@ -6,6 +6,7 @@ public class MagicShieldBar : MonoBehaviour {
 
     private Animator anim;
     private MagicShield playerShield;
+    private SpriteRenderer visible;
 
     // Use this for initialization
     void Start () {
@@ -15,6 +16,7 @@ public class MagicShieldBar : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         playerShield = FindObjectOfType<MagicShield>();
+        visible = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -22,14 +24,17 @@ public class MagicShieldBar : MonoBehaviour {
         if(playerShield.shieldCharge >= 3) //&& playerShield.inUse == false
         {
             anim.SetInteger("Using", 0);
+            visible.enabled = false;
         }
 
         if (playerShield.shieldCharge < 3 && playerShield.shieldCharge > 0 && playerShield.inUse == true)
         {
             anim.SetInteger("Using", 1);
+            visible.enabled = true;
         } else if(playerShield.shieldCharge < 3 && playerShield.shieldCharge > 0 && playerShield.inUse == false)
         {
             anim.SetInteger("Using", 0);
+            visible.enabled = false;
             //StartCoroutine(ChargeWait());
         }
        
