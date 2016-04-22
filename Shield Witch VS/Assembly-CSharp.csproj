@@ -47,6 +47,12 @@
   <ItemGroup>
      <Compile Include="Assets\ExplosionForce2D\script\ExplosionForce2D.cs" />
      <Compile Include="Assets\MenuManager.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
      <Compile Include="Assets\Scripts\AlienC.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
@@ -95,7 +101,9 @@
      <Compile Include="Assets\Scripts\Walls.cs" />
      <Compile Include="Assets\Scripts\WinBox.cs" />
      <Compile Include="Assets\Scripts\robotrigger2.cs" />
+     <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\RainMaker\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
